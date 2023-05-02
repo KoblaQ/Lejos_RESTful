@@ -1,0 +1,11 @@
+Guidance on how to make uniform values would be placed here.
+
+PERSISTENCE.xml
+Sql Values:
+Persistence-unit : slayrobo9
+Database Name: slayrobo9
+Username: team14
+Password: password
+
+jdbc.url might possibly have to be changed from localhost:3306 to ip address 
+when working with the wifi. (192.168.101)

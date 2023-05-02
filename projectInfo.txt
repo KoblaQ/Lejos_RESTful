@@ -6,7 +6,8 @@ WEB.xml
 data.(insert names of classes here)
 
 
-
+USER STORY(as a user my robot is able to blahblah blah)
+Create the user story for the presentation to the customer. 
 
 PERSISTENCE.xml
 Remember to replace the classes with the appropriate paths. (packageName.classFileName)

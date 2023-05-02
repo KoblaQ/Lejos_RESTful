@@ -1,11 +1,33 @@
 Guidance on how to make uniform values would be placed here.
 
+Key Files
+POM.xml
+WEB.xml
+data.(insert names of classes here)
+
+
+
+
 PERSISTENCE.xml
+Remember to replace the classes with the appropriate paths. (packageName.classFileName)
+
+
 Sql Values:
-Persistence-unit : slayrobo9
-Database Name: slayrobo9
+Persistence-unit : slayrobo9db (Not sure if it should be the same as the db name but just playing it safe)
+Database Name: slayrobo9db
 Username: team14
 Password: password
 
 jdbc.url might possibly have to be changed from localhost:3306 to ip address 
 when working with the wifi. (192.168.101)
+
+
+PACKAGES:
+data : contains all the values in the table. (5 files in total)
+Obstacle_Detected (id, distance, timestamp)
+Celebration (id, name)
+Light (intensity level)
+Display_Message (id, message)
+SlayRoboto (base_speed, cycle, safety_distance)
+
+Create them with the appropriate getters and setters. 

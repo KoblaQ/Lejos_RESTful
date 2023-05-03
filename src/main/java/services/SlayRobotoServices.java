@@ -21,7 +21,7 @@ public class SlayRobotoServices {
 		@GET
 		@Path("/allobstacles")
 		@Produces(MediaType.APPLICATION_JSON)
-		public List<obstacle_detected> readAllPrey() {
+		public List<obstacle_detected> readAllObstacle() {
 		//Create an EntityManagerFactory with the settings from persistence.xml file
 			EntityManagerFactory emf=Persistence.createEntityManagerFactory("slayrobo9db");
 			//And then EntityManager, which can manage the entities.
@@ -32,20 +32,33 @@ public class SlayRobotoServices {
 			return list;
 		}
 		
+		//Adding one prey object into the table prey	
+		@POST
+		@Path("/addobstacle")
+		@Produces(MediaType.APPLICATION_JSON)
+		@Consumes(MediaType.APPLICATION_JSON)
+		public obstacle_detected postObstacle(obstacle_detected newObstacle) {
+			EntityManagerFactory emf=Persistence.createEntityManagerFactory("slayrobo9db");
+			EntityManager em=emf.createEntityManager();
+			em.getTransaction().begin();
+			em.persist(newObstacle);//The actual insertion line
+			em.getTransaction().commit();
+			return newObstacle;
+		}
 		
 		//This method uses FormParams, but does the same as previous	
 		@POST
 		@Path("/addobstacle")
 		@Produces(MediaType.APPLICATION_JSON)
 		@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-		public obstacle_detected postPreyByParams(@FormParam("id") int id, @FormParam("distance") int distance, @FormParam("time") String time) {
-			obstacle_detected prey=new obstacle_detected(id,distance, time);
+		public obstacle_detected postObstacleByParams(@FormParam("id") int id, @FormParam("distance") int distance, @FormParam("time") String time) {
+			obstacle_detected newObstacle=new obstacle_detected(id,distance, time);
 			EntityManagerFactory emf=Persistence.createEntityManagerFactory("slayrobo9db");
 			EntityManager em=emf.createEntityManager();
 			em.getTransaction().begin();
-			em.persist(prey);
+			em.persist(newObstacle);
 			em.getTransaction().commit();
-			return prey;
+			return newObstacle;
 		}
 		
 		

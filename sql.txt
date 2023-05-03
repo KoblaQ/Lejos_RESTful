@@ -4,14 +4,16 @@ Create database slayrobo9db;
 
 use slayrobo9db;
 
-create table SlayRoboto (base_speed int not null, cycle int not null, obstacle_detected int, safety_distance decimal not null, message varchar(100) not null, light_intensity_level int )engine=InnoDB;
+create table SlayRoboto (base_speed int not null, cycle int not null, safety_distance decimal not null, linecolor int not null)engine=InnoDB;
 
 
 create table Display_Message (id int not null auto_increment primary key, message varchar(100) not null )engine=InnoDB;
 
 create table Celebration (id int not null auto_increment primary key, name varchar(100) not null) engine=InnoDB;
 
-create table Obstacle_Detected (id int not null auto_increment primary key, distance int, time timestamp )engine=InnoDB;
+create table Obstacle_Detected (id int not null auto_increment primary key, distance int, time timestamp)engine=InnoDB;
+
+create table Light 
 
 
 NOTE: Light table has been merged into the SlayRoboto table. 

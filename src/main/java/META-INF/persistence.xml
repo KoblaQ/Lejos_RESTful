@@ -5,6 +5,7 @@
 		<class>data.celebration</class>
 		<class>data.display_message</class>
 		<class>data.obstacle_detected</class>
+		<class>data.light</class>
 		
 		
 <!-- If using MySQL 5.7 or newer -->

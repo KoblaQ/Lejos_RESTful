@@ -6,7 +6,8 @@ import javax.persistence.Id;
 
 public class obstacle_detected {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
 	private int id;
 	private int distance;

@@ -10,7 +10,49 @@ public class SlayRoboto {
     private int intensity_level;
     private String message;
 
+    //Constructors
+
+    public SlayRoboto() {
+        super();
+    }
+
+    public SlayRoboto( int base_speed) {
+        super();
+        this.base_speed=base_speed;
+    }
+
+    public SlayRoboto( int base_speed, int cycle) {
+        super();
+        this.base_speed=base_speed;
+        this.cycle=cycle;
+    }
+
+    public SlayRoboto( int base_speed, int cycle, int safety_distance) {
+        super();
+        this.base_speed=base_speed;
+        this.cycle=cycle;
+        this.safety_distance=safety_distance;
+    }
+
+    public SlayRoboto( int base_speed, int cycle, int safety_distance, int obstacle_detected) {
+        super();
+        this.base_speed=base_speed;
+        this.cycle=cycle;
+        this.safety_distance=safety_distance;
+        this.obstacle_detected=obstacle_detected;
+    }
+
+    public SlayRoboto( int base_speed, int cycle, int safety_distance, int obstacle_detected, int intensity_level) {
+        super();
+        this.base_speed=base_speed;
+        this.cycle=cycle;
+        this.safety_distance=safety_distance;
+        this.obstacle_detected=obstacle_detected;
+        this.intensity_level=intensity_level;
+    }
+
         public SlayRoboto( int base_speed, int cycle, int safety_distance, int obstacle_detected, int intensity_level, String message) {
+        super();
         this.base_speed=base_speed;
         this.cycle=cycle;
         this.safety_distance=safety_distance;
@@ -18,6 +60,7 @@ public class SlayRoboto {
         this.intensity_level=intensity_level;
         this.message=message;
     }
+    
 
     //Methods for base_speed
     public int getBase_speed() {

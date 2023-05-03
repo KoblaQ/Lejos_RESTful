@@ -3,8 +3,9 @@
 As a user I can set speed
     Through a web browser, a user can set speed to the Lego robot (or slow down or speed up the velocity). The setting is saved into a database. 
 
-As a user I can set, how far the robot will detect an object
-    Through a web browser, a user can choose how far the robot will detect the obstacle before it starts avoiding it.
+As a user I can set at what light intensity the robot will detect the line
+    Through a web browser, a user can set the value for light intensity that the robot will use to stay on track.
+
 
 As a user I can set how many times the robot will follow the line before it celebrates
     Through a web browser, a user can set the count for the cycle which initiates the robot's celebration

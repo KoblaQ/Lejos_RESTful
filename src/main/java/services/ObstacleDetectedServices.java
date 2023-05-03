@@ -13,52 +13,52 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import data.slayroboto;;
+import data.obstacle_detected;
 
-@Path("/slayrobotoservices")
-public class SlayRobotoServices {
-	//Reading all the rows from table slayroboto.
+@Path("/obstacledetectedservices")
+public class ObstacleDetectedServices {
+	//Reading all the rows from table object_detected.
 		@GET
-		@Path("/readall")
+		@Path("/allobstacles")
 		@Produces(MediaType.APPLICATION_JSON)
-		public List<slayroboto> readAll() {
+		public List<obstacle_detected> readAllObstacle() {
 		//Create an EntityManagerFactory with the settings from persistence.xml file
 			EntityManagerFactory emf=Persistence.createEntityManagerFactory("slayrobo9db");
 			//And then EntityManager, which can manage the entities.
 			EntityManager em=emf.createEntityManager();
 			
 			//Read all the rows from table obstacle_detected. This returns a List of obstacle_detected objects.
-			List<slayroboto> list=em.createQuery("select * from slayroboto").getResultList();
+			List<obstacle_detected> list=em.createQuery("select * from obstacle_detected").getResultList();
 			return list;
 		}
 		
-		//Adding one slayroboto object into the table prey	
+		//Adding one prey object into the table prey	
 		@POST
-		@Path("/adddata")
+		@Path("/addobstacle")
 		@Produces(MediaType.APPLICATION_JSON)
 		@Consumes(MediaType.APPLICATION_JSON)
-		public slayroboto postObstacle(slayroboto newRobot) {
+		public obstacle_detected postObstacle(obstacle_detected newObstacle) {
 			EntityManagerFactory emf=Persistence.createEntityManagerFactory("slayrobo9db");
 			EntityManager em=emf.createEntityManager();
 			em.getTransaction().begin();
-			em.persist(newRobot);//The actual insertion line
+			em.persist(newObstacle);//The actual insertion line
 			em.getTransaction().commit();
-			return newRobot;
+			return newObstacle;
 		}
 		
 		//This method uses FormParams, but does the same as previous	
 		@POST
-		@Path("/adddata")
+		@Path("/addobstacle")
 		@Produces(MediaType.APPLICATION_JSON)
 		@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-		public slayroboto postObstacleByParams(@FormParam("base_speed") int base_speed, @FormParam("cycle") int cycle, @FormParam("safety_distance") float safety_distance, @FormParam("linecolor") int linecolor) {
-			slayroboto newRobot=new slayroboto(base_speed, cycle, safety_distance, linecolor);
+		public obstacle_detected postObstacleByParams(@FormParam("id") int id, @FormParam("distance") int distance, @FormParam("time") String time) {
+			obstacle_detected newObstacle=new obstacle_detected(id,distance, time);
 			EntityManagerFactory emf=Persistence.createEntityManagerFactory("slayrobo9db");
 			EntityManager em=emf.createEntityManager();
 			em.getTransaction().begin();
-			em.persist(newRobot);
+			em.persist(newObstacle);
 			em.getTransaction().commit();
-			return newRobot;
+			return newObstacle;
 		}
 		
 		

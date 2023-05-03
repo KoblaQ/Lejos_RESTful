@@ -13,7 +13,7 @@ create table Celebration (id int not null auto_increment primary key, name varch
 
 create table Obstacle_Detected (id int not null auto_increment primary key, distance int, time timestamp)engine=InnoDB;
 
-create table Light 
+create table Light (intensity_level int primary key)engine=InnoDB;
 
 
 NOTE: Light table has been merged into the SlayRoboto table. 

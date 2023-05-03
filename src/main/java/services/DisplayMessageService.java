@@ -37,7 +37,7 @@ public class DisplayMessageService {
 			@Path("/addmessage")
 			@Produces(MediaType.APPLICATION_JSON)
 			@Consumes(MediaType.APPLICATION_JSON)
-			public display_message postMessge(display_message newMessage) {
+			public display_message postMessage(display_message newMessage) {
 				EntityManagerFactory emf=Persistence.createEntityManagerFactory("slayrobo9db");
 				EntityManager em=emf.createEntityManager();
 				em.getTransaction().begin();
@@ -52,13 +52,13 @@ public class DisplayMessageService {
 			@Produces(MediaType.APPLICATION_JSON)
 			@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 			public display_message postMessageByParams(@FormParam("id") int id, @FormParam("message") String message) {
-				display_message newObstacle=new display_message(id, message);
+				display_message newMessage=new display_message(id, message);
 				EntityManagerFactory emf=Persistence.createEntityManagerFactory("slayrobo9db");
 				EntityManager em=emf.createEntityManager();
 				em.getTransaction().begin();
-				em.persist(newObstacle);
+				em.persist(newMessage);
 				em.getTransaction().commit();
-				return newObstacle;
+				return newMessage;
 			}
 
 }

@@ -37,7 +37,8 @@ Create them with the appropriate getters and setters.
 
 services: contains all the paths that would be called for adding and updating values using the entity manager.
 
-
+Html form 
+For now it is inside src/main/webapp/html/Form.html
 
 
 SlayRoboto.HTML page

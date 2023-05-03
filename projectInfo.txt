@@ -27,8 +27,18 @@ PACKAGES:
 data : contains all the values in the table. (5 files in total)
 Obstacle_Detected (id, distance, timestamp)
 Celebration (id, name)
-Light (intensity level)
+Light (intensity level) -->This has been taken off and added to the slayroboto table.
 Display_Message (id, message)
-SlayRoboto (base_speed, cycle, safety_distance)
+SlayRoboto (base_speed, cycle, safety_distance,etc)
 
 Create them with the appropriate getters and setters. 
+
+services: contains all the paths that would be called for adding and updating values using the entity manager.
+
+
+
+
+SlayRoboto.HTML page
+Page that contains all the commands. 
+
+

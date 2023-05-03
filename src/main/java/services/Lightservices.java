@@ -51,8 +51,8 @@ public class Lightservices {
 	@Path("/addlinecolor")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public light postLightByParams(@FormParam("id") int id, @FormParam("linecolor") int linecolor) {
-		light newLineColor=new light(linecolor);
+	public light postLightByParams(@FormParam("id") int id, @FormParam("intensity_level") int intensity_level) {
+		light newLineColor=new light(intensity_level);
 		EntityManagerFactory emf=Persistence.createEntityManagerFactory("slayrobo9db");
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();

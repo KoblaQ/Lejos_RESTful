@@ -44,14 +44,17 @@ p {
 		<input type='submit' name='ok' value='Submit into Display_Messages'><br>
 	</form>
 	
+	<hr>
 	
 	<h2>Inserting LineColor Value (Light) into database</h2>
 
 	<form method='post' action="/rest/lightservices/addlinecolor">
 	ID: <input type='number' name='id' value=''><br>
-		LineColor: <input type='number' name='linecolor' value=''><br>
+		LineColor: <input type='number' name='intensity_level' value=''><br>
 		<input type='submit' name='ok' value='Submit into Light'><br>
 	</form>
+	
+	<hr>
 	
 	<h2>Inserting SlayRoboto Values into database</h2>
 
@@ -61,6 +64,16 @@ p {
 		safety_distance: <input type='number' step='0.1' name='safety_distance' value=''><br>
 		LineColor: <input type='number' name='linecolor' value=''><br>
 		<input type='submit' name='ok' value='Submit into Light'><br>
+	</form>
+	
+	<hr>
+	
+	<h2>Inserting a celebration into database</h2>
+
+	<form method='post' action="/rest/celebrationservices/addcelebration">
+		ID: <input type='number' name='id' value=''><br>
+		Celebration: <input type='text' name='celebration' value=''><br>
+		<input type='submit' name='ok' value='Submit into Celebrations'><br>
 	</form>
 	
 

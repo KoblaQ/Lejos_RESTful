@@ -8,10 +8,11 @@ import javax.persistence.Id;
 @Entity
 public class light {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
 	private int id;
-	private int intensityLevel;
+	private int intensity_level;
 	
 	public light(){
 		super();
@@ -22,27 +23,21 @@ public class light {
 //		this.id = id;
 //	}
 	
-	public light(int intensityLevel) {
+	public light(int intensity_level) {
 		super();
-		this.intensityLevel = intensityLevel;
+		this.intensity_level = intensity_level;
 	}
 	
-	public light(int id, int intensityLevel) {
+	public light(int id, int intensity_level) {
 		super();
-		this.intensityLevel = intensityLevel;
 		this.id = id;
-	}
-
-
-	public int getIntensityLevel() {
-		return intensityLevel;
-	}
-
-	public void setIntensityLevel(int intensityLevel) {
-		this.intensityLevel = intensityLevel;
+		this.intensity_level = intensity_level;
+		
 	}
 	
 	
+
+
 	public int getId() {
 		return id;
 	}
@@ -51,7 +46,15 @@ public class light {
 		this.id = id;
 	}
 
+	public int getIntensity_level() {
+		return intensity_level;
+	}
+
+	public void setIntensity_level(int intensity_level) {
+		this.intensity_level = intensity_level;
+	}
+
 	public String toString() {
-		return "Line Color: " + this.id + "/ " + this.intensityLevel;
+		return "Line Color: " + this.id + "/ " + this.intensity_level;
 	}
 }

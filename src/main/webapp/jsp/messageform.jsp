@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Add Message Form</title>
 </head>
 <body>
-	<form action='../addmessage' method='post'>
+	<form action='../displaymessageservice/addmessage' method='post'>
 		<input type='number' name='id' value=''> <input type='text'
 			name='message' value=''> <input type='submit' name='ok'
 			value='OK'>

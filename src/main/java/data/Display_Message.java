@@ -6,28 +6,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Display_Message {
+public class display_message {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	
 	private int id ;
 	private String message;
 	
-	public Display_Message() {
+	public display_message() {
 		super();
 	}
 	
 	
-	public Display_Message(int id, String message) {
-		this.id = id;
+	public display_message(int id, String message) {
+		super();
 		this.message = message;
 	}
 	
-	public Display_Message(String message) {
+	public display_message(String message) {
+		super();
 		this.message = message;
 	}
 	
-	public Display_Message(int id) {
+	public display_message(int id) {
+		super();
 		this.id = id;
 	}
 

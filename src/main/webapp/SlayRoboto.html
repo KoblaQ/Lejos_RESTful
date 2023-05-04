@@ -74,6 +74,9 @@ function printAllCelebrations(list){
 	s=s+"</table>";
 	document.getElementById("allnames").innerHTML=s;
 }
+	
+	
+	
 
 </script>
 
@@ -134,6 +137,17 @@ function printAllCelebrations(list){
 		<input type='submit' name='ok' value='Submit into Celebrations'><br>
 	</form>
 	
+	
+	<hr>
+	<h2>SINGLE CELEBRATION</h2>
+
+	<form method='get' action="/rest/celebrationservices/singlecelebration">
+		CELEBRATION ID: <input type='number' name='id' value=''><br>
+		<input type='submit' name='ok' value='Submit into Celebrations'><br>
+	</form>
+	
+	
+	<hr>
 	
 	<h1>One celebration returned</h1>
     <button onclick='readOneCelebration();'>Read one celebration</button>

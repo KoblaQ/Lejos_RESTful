@@ -10,6 +10,7 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -110,26 +111,76 @@ public class CelebrationServices {
 //	    return singleCelebration;
 //	}
 	
+//	@GET
+//	@Path("/singlecelebration")
+////	@Produces(MediaType.TEXT_PLAIN)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public String readOneCelebration(@QueryParam("id") int id) {
+//	    // Create an EntityManagerFactory with the settings from persistence.xml file
+//	    EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
+//	    // And then EntityManager, which can manage the entities.
+//	    EntityManager em = emf.createEntityManager();
+//	    
+//	    // Retrieve the Prey with the specified ID
+//	    celebration singleCelebration = em.find(celebration.class, id);
+//	    
+//	    // Close the EntityManager and EntityManagerFactory
+//	    em.close();
+//	    emf.close();
+//	    
+//	    
+//	    return "" + singleCelebration.getName();
+//	}
+	
+	
 	@GET
 	@Path("/singlecelebration")
-//	@Produces(MediaType.TEXT_PLAIN)
-	@Produces(MediaType.APPLICATION_JSON)
-	public String readOneCelebration(@QueryParam("id") int id) {
+	@Produces(MediaType.TEXT_PLAIN)
+//	@Produces(MediaType.APPLICATION_JSON)
+	public String readOneCelebration() {
 	    // Create an EntityManagerFactory with the settings from persistence.xml file
 	    EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
 	    // And then EntityManager, which can manage the entities.
 	    EntityManager em = emf.createEntityManager();
 	    
+	    
+	    //Get the selected value
+	    
+	    int SelectedValue = 1;
 	    // Retrieve the Prey with the specified ID
-	    celebration singleCelebration = em.find(celebration.class, id);
+	    celebration singleCelebration = em.find(celebration.class,id);
 	    
 	    // Close the EntityManager and EntityManagerFactory
 	    em.close();
 	    emf.close();
 	    
 	    
-	    return "" + singleCelebration.getName();
+	   return singleCelebration.getName();
 	}
+	
+//	@GET
+//	@Path("/singlecelebrationnoparam")
+//	@Produces(MediaType.TEXT_PLAIN)
+////	@Produces(MediaType.APPLICATION_JSON)
+//	public String readOneCelebration() {
+//	    // Create an EntityManagerFactory with the settings from persistence.xml file
+//	    EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
+//	    // And then EntityManager, which can manage the entities.
+//	    EntityManager em = emf.createEntityManager();
+//	    
+//	    // Retrieve the Prey with the specified ID
+//	    celebration singleCelebration = em.find(celebration.class, 4);
+//	    
+//	    // Close the EntityManager and EntityManagerFactory
+//	    em.close();
+//	    emf.close();
+//	    
+//	    
+////	     String value = singleCelebration.getName();
+////	     return value.toString();
+//	    
+//	    return singleCelebration.getName();
+//	}
 
 	/*
 	 * NEW method Read the values what you want from the database Create a string of

@@ -12,7 +12,9 @@ public class celebration {
 	
 	private int id ;
 	private String name;
-	
+	private int selectedValue;
+
+
 	public celebration() {
 		super();
 	}
@@ -54,6 +56,17 @@ public class celebration {
 		this.name = name;
 	}
 
+	
+	//SELECTED VALUE
+	public int getSelectedValue() {
+		return selectedValue;
+	}
+
+
+	public void setSelectedValue() {
+//		this.selectedValue = selectedValue;
+		this.selectedValue = this.id;
+	}
 
 	public String toString() {
 		return this.id + ": " + this.name;

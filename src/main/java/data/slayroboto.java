@@ -11,6 +11,7 @@ public class slayroboto {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
+	private int id;
 	private int base_speed;
 	private int cycle;
 	private float safety_distance;
@@ -20,8 +21,9 @@ public class slayroboto {
 		super();
 	}
 	
-	public slayroboto(int base_speed, int cycle, float safety_distance, int linecolor) {
+	public slayroboto(int id, int base_speed, int cycle, float safety_distance, int linecolor) {
 		super();
+		this.id = 1;
 		this.base_speed = base_speed;
 		this.cycle = cycle;
 		this.safety_distance = safety_distance;

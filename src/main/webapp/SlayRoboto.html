@@ -23,61 +23,59 @@ p {
 </style>
 
 <script>
-function readOneCelebration(){
-	var xmlhttp=new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-	  if (this.readyState == 4 && this.status == 200) {
-		  var jsonCelebration=this.responseText;
-		  //Add JSON string as a content of element resultone
-		  document.getElementById("resultone").innerHTML = jsonCelebration;
-		  //Parse json string to a Javascript object
-		  var celebration=JSON.parse(jsonCelebration);
-		  //print fish by function printOneFish.
-		  printOneCelebration(celebration);
-	  }
-	};
-	xmlhttp.open("GET", "/rest/celebrationservices/readallcelebrations", true);
-	xmlhttp.send();	
-}
-function printOneCelebration(c){
-	var s="<table border='1'>";
-	s=s+"<tr>";
-	s=s+"<td>"+c.id;
-	s=s+"<td>"+c.name;
-	s=s+"</table>";
-	document.getElementById("name").innerHTML=s;
-}
-
-function readAllCelebrations(){
-	var xmlhttp=new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-	  if (this.readyState == 4 && this.status == 200) {
-		  var jsoncelebrationlist=this.responseText;
-		  //Add JSON string as a content of element resultall
-		  document.getElementById("resultall").innerHTML = jsoncelebrationlist;
-		  var celebrationlist=JSON.parse(jsoncelebrationlist);
-		  //print celebration by function printAllCelebrations.
-		  printAllCelebrations(celebrationlist);
-	  }
-	};
-	xmlhttp.open("GET", "/rest/celebrationservices/readallcelebrations", true);
-	xmlhttp.send();	
-}
-
-function printAllCelebrations(list){
-	var s="<table border='1'>";
-	for (i in list){//or for (var i=0;i<list.length;i++){
-		s=s+"<tr>";
-		s=s+"<td>"+list[i].id;
-		s=s+"<td>"+list[i].name;
+	function readOneCelebration() {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var jsonCelebration = this.responseText;
+				//Add JSON string as a content of element resultone
+				document.getElementById("resultone").innerHTML = jsonCelebration;
+				//Parse json string to a Javascript object
+				var celebration = JSON.parse(jsonCelebration);
+				//print fish by function printOneFish.
+				printOneCelebration(celebration);
+			}
+		};
+		xmlhttp.open("GET", "/rest/celebrationservices/readallcelebrations",
+				true);
+		xmlhttp.send();
 	}
-	s=s+"</table>";
-	document.getElementById("allnames").innerHTML=s;
-}
-	
-	
-	
+	function printOneCelebration(c) {
+		var s = "<table border='1'>";
+		s = s + "<tr>";
+		s = s + "<td>" + c.id;
+		s = s + "<td>" + c.name;
+		s = s + "</table>";
+		document.getElementById("name").innerHTML = s;
+	}
 
+	function readAllCelebrations() {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var jsoncelebrationlist = this.responseText;
+				//Add JSON string as a content of element resultall
+				document.getElementById("resultall").innerHTML = jsoncelebrationlist;
+				var celebrationlist = JSON.parse(jsoncelebrationlist);
+				//print celebration by function printAllCelebrations.
+				printAllCelebrations(celebrationlist);
+			}
+		};
+		xmlhttp.open("GET", "/rest/celebrationservices/readallcelebrations",
+				true);
+		xmlhttp.send();
+	}
+
+	function printAllCelebrations(list) {
+		var s = "<table border='1'>";
+		for (i in list) {//or for (var i=0;i<list.length;i++){
+			s = s + "<tr>";
+			s = s + "<td>" + list[i].id;
+			s = s + "<td>" + list[i].name;
+		}
+		s = s + "</table>";
+		document.getElementById("allnames").innerHTML = s;
+	}
 </script>
 
 
@@ -118,13 +116,14 @@ function printAllCelebrations(list){
 
 	<h2>Inserting SlayRoboto Values into database</h2>
 
-	<form method='post' action="/rest/slayrobotoservices/adddata">
-		Base Speed: <input type='number' name='base_speed' value=''><br>
-		Cycle: <input type='number' name='cycle' value=''><br>
-		safety_distance: <input type='number' step='0.1'
-			name='safety_distance' value=''><br> LineColor: <input
-			type='number' name='linecolor' value=''><br> <input
-			type='submit' name='ok' value='Submit into Light'><br>
+	<form method='post' action="/rest/slayrobotoservices/updatedata">
+			ID: <input type='number' name='id' value=''><br> Base
+			Speed: <input type='number' name='base_speed' value=''><br>
+			Cycle: <input type='number' name='cycle' value=''><br>
+			safety_distance: <input type='number' step='0.1'
+			name='safety_distance' value=''><br> 
+			LineColor: <input type='number' name='linecolor' value=''><br> 
+			<input type='submit' name='ok' value='Submit into Slayroboto'><br>
 	</form>
 
 	<hr>
@@ -136,8 +135,8 @@ function printAllCelebrations(list){
 		Celebration: <input type='text' name='celebration' value=''><br>
 		<input type='submit' name='ok' value='Submit into Celebrations'><br>
 	</form>
-	
-	
+
+
 	<hr>
 	<h2>SINGLE CELEBRATION</h2>
 
@@ -145,21 +144,19 @@ function printAllCelebrations(list){
 		CELEBRATION ID: <input type='number' name='id' value=''><br>
 		<input type='submit' name='ok' value='Submit into Celebrations'><br>
 	</form>
-	
-	
+
+
 	<hr>
-	
+
 	<h1>One celebration returned</h1>
-    <button onclick='readOneCelebration();'>Read one celebration</button>
-    <p id='resultone'></p>
-    <div id='onecelebration'>
-    </div>
-    
-    <h1>Several celebration returned</h1>
-    <button onclick='readAllCelebrations();'>Read all celebrations</button>
-    <p id='resultall'></p>
-    <div id='allnames'>
-    </div>
+	<button onclick='readOneCelebration();'>Read one celebration</button>
+	<p id='resultone'></p>
+	<div id='onecelebration'></div>
+
+	<h1>Several celebration returned</h1>
+	<button onclick='readAllCelebrations();'>Read all celebrations</button>
+	<p id='resultall'></p>
+	<div id='allnames'></div>
 
 
 

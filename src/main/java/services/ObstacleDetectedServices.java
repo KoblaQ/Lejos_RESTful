@@ -28,7 +28,7 @@ public class ObstacleDetectedServices {
 			EntityManager em=emf.createEntityManager();
 			
 			//Read all the rows from table obstacle_detected. This returns a List of obstacle_detected objects.
-			List<obstacle_detected> list=em.createQuery("select * from obstacle_detected").getResultList();
+			List<obstacle_detected> list=em.createQuery("select a from obstacle_detected a").getResultList();
 			return list;
 		}
 		

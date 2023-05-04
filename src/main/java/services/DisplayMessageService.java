@@ -28,11 +28,11 @@ public class DisplayMessageService {
 				EntityManager em=emf.createEntityManager();
 				
 				//Read all the rows from table obstacle_detected. This returns a List of obstacle_detected objects.
-				List<display_message> list=em.createQuery("select * from display_message").getResultList();
+				List<display_message> list=em.createQuery("select a from display_message a").getResultList();
 				return list;
 			}
 			
-			//Adding one prey object into the table prey	
+			//Adding one message object into the table prey	
 			@POST
 			@Path("/addmessage")
 			@Produces(MediaType.APPLICATION_JSON)

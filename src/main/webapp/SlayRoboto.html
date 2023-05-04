@@ -21,6 +21,63 @@ p {
 	color: rgba(124, 0, 161, 0.726);
 }
 </style>
+
+<script>
+function readOneCelebration(){
+	var xmlhttp=new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+	  if (this.readyState == 4 && this.status == 200) {
+		  var jsonCelebration=this.responseText;
+		  //Add JSON string as a content of element resultone
+		  document.getElementById("resultone").innerHTML = jsonCelebration;
+		  //Parse json string to a Javascript object
+		  var celebration=JSON.parse(jsonCelebration);
+		  //print fish by function printOneFish.
+		  printOneCelebration(celebration);
+	  }
+	};
+	xmlhttp.open("GET", "/rest/celebrationservices/readallcelebrations", true);
+	xmlhttp.send();	
+}
+function printOneCelebration(c){
+	var s="<table border='1'>";
+	s=s+"<tr>";
+	s=s+"<td>"+c.id;
+	s=s+"<td>"+c.name;
+	s=s+"</table>";
+	document.getElementById("name").innerHTML=s;
+}
+
+function readAllCelebrations(){
+	var xmlhttp=new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+	  if (this.readyState == 4 && this.status == 200) {
+		  var jsoncelebrationlist=this.responseText;
+		  //Add JSON string as a content of element resultall
+		  document.getElementById("resultall").innerHTML = jsoncelebrationlist;
+		  var celebrationlist=JSON.parse(jsoncelebrationlist);
+		  //print celebration by function printAllCelebrations.
+		  printAllCelebrations(celebrationlist);
+	  }
+	};
+	xmlhttp.open("GET", "/rest/celebrationservices/readallcelebrations", true);
+	xmlhttp.send();	
+}
+
+function printAllCelebrations(list){
+	var s="<table border='1'>";
+	for (i in list){//or for (var i=0;i<list.length;i++){
+		s=s+"<tr>";
+		s=s+"<td>"+list[i].id;
+		s=s+"<td>"+list[i].name;
+	}
+	s=s+"</table>";
+	document.getElementById("allnames").innerHTML=s;
+}
+
+</script>
+
+
 </head>
 <body>
 
@@ -28,46 +85,47 @@ p {
 
 	<form method='post' action="/rest/obstacledetectedservices/addobstacle">
 		ID: <input type='number' name='id' value=''><br>
-		Distance: <input type='number' name='distance' value=''><br> 
+		Distance: <input type='number' name='distance' value=''><br>
 		<!--  Time: <input type='text' name='distance' value=''><br> -->
 		<input type='submit' name='ok' value='Submit into ObjectDetection'><br>
 	</form>
-	
+
 	<hr>
-	
-	
+
+
 	<h2>Inserting a message into database</h2>
 
 	<form method='post' action="/rest/displaymessageservices/addmessage">
-		ID: <input type='number' name='id' value=''><br>
-		Message: <input type='text' name='message' value=''><br>
-		<input type='submit' name='ok' value='Submit into Display_Messages'><br>
+		ID: <input type='number' name='id' value=''><br> Message:
+		<input type='text' name='message' value=''><br> <input
+			type='submit' name='ok' value='Submit into Display_Messages'><br>
 	</form>
-	
+
 	<hr>
-	
+
 	<h2>Inserting LineColor Value (Light) into database</h2>
 
 	<form method='post' action="/rest/lightservices/addlinecolor">
-	ID: <input type='number' name='id' value=''><br>
+		ID: <input type='number' name='id' value=''><br>
 		LineColor: <input type='number' name='intensity_level' value=''><br>
 		<input type='submit' name='ok' value='Submit into Light'><br>
 	</form>
-	
+
 	<hr>
-	
+
 	<h2>Inserting SlayRoboto Values into database</h2>
 
 	<form method='post' action="/rest/slayrobotoservices/adddata">
 		Base Speed: <input type='number' name='base_speed' value=''><br>
 		Cycle: <input type='number' name='cycle' value=''><br>
-		safety_distance: <input type='number' step='0.1' name='safety_distance' value=''><br>
-		LineColor: <input type='number' name='linecolor' value=''><br>
-		<input type='submit' name='ok' value='Submit into Light'><br>
+		safety_distance: <input type='number' step='0.1'
+			name='safety_distance' value=''><br> LineColor: <input
+			type='number' name='linecolor' value=''><br> <input
+			type='submit' name='ok' value='Submit into Light'><br>
 	</form>
-	
+
 	<hr>
-	
+
 	<h2>Inserting a celebration into database</h2>
 
 	<form method='post' action="/rest/celebrationservices/addcelebration">
@@ -76,6 +134,19 @@ p {
 		<input type='submit' name='ok' value='Submit into Celebrations'><br>
 	</form>
 	
+	
+	<h1>One celebration returned</h1>
+    <button onclick='readOneCelebration();'>Read one celebration</button>
+    <p id='resultone'></p>
+    <div id='onecelebration'>
+    </div>
+    
+    <h1>Several celebration returned</h1>
+    <button onclick='readAllCelebrations();'>Read all celebrations</button>
+    <p id='resultall'></p>
+    <div id='allnames'>
+    </div>
+
 
 
 

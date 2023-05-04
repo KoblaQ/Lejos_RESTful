@@ -13,7 +13,7 @@
 			value='OK'>
 	</form>
 	<ol>
-		<c:forEach var="message" items="${requestScope.messagelist }">
+		<c:forEach var="message" items="${requestScope.displayMessage.message }">
 			<li>${displayMessage}<a
 				href='../deletemessage?id=${displayMessage.id}'>Delete</a> <a
 				href='../readtoupdatemessage?id=${displayMessage.id}'>Update</a>

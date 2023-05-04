@@ -28,7 +28,7 @@ public class Lightservices {
 		EntityManager em=emf.createEntityManager();
 		
 		//Read all the rows from table obstacle_detected. This returns a List of obstacle_detected objects.
-		List<light> list=em.createQuery("select * from light").getResultList();
+		List<light> list=em.createQuery("select a from light a").getResultList();
 		return list;
 	}
 	

@@ -28,7 +28,7 @@ public class CelebrationServices {
 				EntityManager em=emf.createEntityManager();
 				
 				//Read all the rows from table obstacle_detected. This returns a List of obstacle_detected objects.
-				List<celebration> list=em.createQuery("select * from celebration").getResultList();
+				List<celebration> list=em.createQuery("select a from celebration a").getResultList();
 				return list;
 			}
 			
@@ -61,4 +61,21 @@ public class CelebrationServices {
 				return newCelebration;
 			}
 
+			/*
+			NEW method
+			Read the values what you want from the database
+			Create a string of the values separated by space
+			e.g speed=50, dista=30....
+			
+			String s=speed+" "+dista+" "+other;
+			return s;
+			
+			CREATE A NEW METHOD HERE TO READ THE VALUES YOU WANT FROM THE DATABASE AND THEN return them as a string 
+			THIS WOULD LATER BE CONVERTED INTO SEPARATE VALUES IN THE LEJOS PROJECT.
+			
+			*/
+			
+			
+			
+			
 }

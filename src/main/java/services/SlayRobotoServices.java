@@ -28,7 +28,7 @@ public class SlayRobotoServices {
 			EntityManager em=emf.createEntityManager();
 			
 			//Read all the rows from table obstacle_detected. This returns a List of obstacle_detected objects.
-			List<slayroboto> list=em.createQuery("select * from slayroboto").getResultList();
+			List<slayroboto> list=em.createQuery("select a from slayroboto a").getResultList();
 			return list;
 		}
 		

@@ -18,3 +18,7 @@ create table Light (intensity_level int primary key)engine=InnoDB;
 
 NOTE: Light table has been merged into the SlayRoboto table. 
 Possibility to take obstacle detected out as a foreign key as well. (Discuss)
+
+
+create user team14@localhost identified by 'password';
+grant all on slayrobo9db.*  to team14@localhost;

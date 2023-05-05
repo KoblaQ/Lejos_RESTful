@@ -13,6 +13,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import data.celebration;
 import data.slayroboto;;
 
 @Path("/slayrobotoservices")
@@ -80,5 +81,51 @@ public class SlayRobotoServices {
 		em.getTransaction().commit();
 		return newRobot;
 	}
-
+	
+	//BASESPEED
+	
+	@GET
+	@Path("/basespeed")
+	@Produces(MediaType.TEXT_PLAIN)
+//	@Produces(MediaType.APPLICATION_JSON)
+	public int basespeed() {
+	    // Create an EntityManagerFactory with the settings from persistence.xml file
+	    EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
+	    // And then EntityManager, which can manage the entities.
+	    EntityManager em = emf.createEntityManager();
+	    
+	    // Retrieve the Prey with the specified ID
+	    slayroboto singleCelebration = em.find(slayroboto.class,1);
+	    
+	    // Close the EntityManager and EntityManagerFactory
+	    em.close();
+	    emf.close();
+	    
+	    
+	   return singleCelebration.getBase_speed();
+	}
+	
+	//CYCLE
+	
+		@GET
+		@Path("/cycle")
+		@Produces(MediaType.TEXT_PLAIN)
+//		@Produces(MediaType.APPLICATION_JSON)
+		public int cycle() {
+		    // Create an EntityManagerFactory with the settings from persistence.xml file
+		    EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
+		    // And then EntityManager, which can manage the entities.
+		    EntityManager em = emf.createEntityManager();
+		    
+		    // Retrieve the Prey with the specified ID
+		    slayroboto singleCelebration = em.find(slayroboto.class,1);
+		    
+		    // Close the EntityManager and EntityManagerFactory
+		    em.close();
+		    emf.close();
+		    
+		    
+		   return singleCelebration.getCycle();
+		}
+	
 }

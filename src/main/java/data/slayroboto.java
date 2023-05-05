@@ -64,9 +64,12 @@ public class slayroboto {
 	
 	//For printing out the values
 	
-		public String toString() {
-			return "Base Speed: " + this.base_speed + "Cycle: " + this.cycle + "safety_distance: " + this.safety_distance + "Linecolor: " + this.linecolor;
-		}
+//		public String toString() {
+//			return "Base Speed: " + this.base_speed + "Cycle: " + this.cycle + "safety_distance: " + this.safety_distance + "Linecolor: " + this.linecolor;
+//		}
 
+	public String toString() {
+		return  this.base_speed+ " " + this.cycle + " " + this.safety_distance + " " + this.linecolor;
+	}
 
 }

@@ -133,30 +133,30 @@ public class CelebrationServices {
 //	}
 	
 	
-	@GET
-	@Path("/singlecelebration")
-	@Produces(MediaType.TEXT_PLAIN)
-//	@Produces(MediaType.APPLICATION_JSON)
-	public String readOneCelebration() {
-	    // Create an EntityManagerFactory with the settings from persistence.xml file
-	    EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
-	    // And then EntityManager, which can manage the entities.
-	    EntityManager em = emf.createEntityManager();
-	    
-	    
-	    //Get the selected value
-	    
-	    int SelectedValue = 1;
-	    // Retrieve the Prey with the specified ID
-	    celebration singleCelebration = em.find(celebration.class,id);
-	    
-	    // Close the EntityManager and EntityManagerFactory
-	    em.close();
-	    emf.close();
-	    
-	    
-	   return singleCelebration.getName();
-	}
+//	@GET
+//	@Path("/singlecelebration")
+//	@Produces(MediaType.TEXT_PLAIN)
+////	@Produces(MediaType.APPLICATION_JSON)
+//	public String readOneCelebration() {
+//	    // Create an EntityManagerFactory with the settings from persistence.xml file
+//	    EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
+//	    // And then EntityManager, which can manage the entities.
+//	    EntityManager em = emf.createEntityManager();
+//	    
+//	    
+//	    //Get the selected value
+//	    
+//	    int id = 1;
+//	    // Retrieve the Prey with the specified ID
+//	    celebration singleCelebration = em.find(celebration.class,id);
+//	    
+//	    // Close the EntityManager and EntityManagerFactory
+//	    em.close();
+//	    emf.close();
+//	    
+//	    
+//	   return singleCelebration.getName();
+//	}
 	
 //	@GET
 //	@Path("/singlecelebrationnoparam")

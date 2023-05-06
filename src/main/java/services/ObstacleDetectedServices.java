@@ -10,7 +10,9 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import data.obstacle_detected;
@@ -51,8 +53,8 @@ public class ObstacleDetectedServices {
 		@Path("/addobstacle")
 		@Produces(MediaType.APPLICATION_JSON)
 		@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-		public obstacle_detected postObstacleByParams(@FormParam("id") int id, @FormParam("distance") int distance, @FormParam("time") String time) {
-			obstacle_detected newObstacle=new obstacle_detected(id,distance, time);
+		public obstacle_detected postObstacleByParams(@FormParam("id") int id, @FormParam("distance") int distance) {
+			obstacle_detected newObstacle=new obstacle_detected(id,distance);
 			EntityManagerFactory emf=Persistence.createEntityManagerFactory("slayrobo9db");
 			EntityManager em=emf.createEntityManager();
 			em.getTransaction().begin();
@@ -61,6 +63,36 @@ public class ObstacleDetectedServices {
 			return newObstacle;
 		}
 		
+		//This method uses no params
+				@GET
+				@Path("/addobstacle/{distance}")
+				@Produces(MediaType.APPLICATION_JSON)
+//				@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+				public obstacle_detected postSingleObstacleByParams(@PathParam("distance") int distance) {
+					obstacle_detected newObstacle=new obstacle_detected(distance);
+					EntityManagerFactory emf=Persistence.createEntityManagerFactory("slayrobo9db");
+					EntityManager em=emf.createEntityManager();
+					em.getTransaction().begin();
+					em.persist(newObstacle);
+					em.getTransaction().commit();
+					return newObstacle;
+				}
+		
+//				//This method uses no params
+//				@GET
+//				@Path("/addobstacle/{distance}")
+//				@Produces(MediaType.APPLICATION_JSON)
+////				@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+//				public obstacle_detected postSingleObstacleByParams(@QueryParam("distance") int distance) {
+//					obstacle_detected newObstacle=new obstacle_detected(distance);
+//					EntityManagerFactory emf=Persistence.createEntityManagerFactory("slayrobo9db");
+//					EntityManager em=emf.createEntityManager();
+//					em.getTransaction().begin();
+//					em.persist(newObstacle);
+//					em.getTransaction().commit();
+//					return newObstacle;
+//				}
+//		
 		
 	
 }

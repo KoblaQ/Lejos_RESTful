@@ -12,7 +12,7 @@ public class celebration {
 	
 	private int id ;
 	private String name;
-	private int selectedValue;
+//	private int selectedValue;
 
 
 	public celebration() {
@@ -58,15 +58,15 @@ public class celebration {
 
 	
 	//SELECTED VALUE
-	public int getSelectedValue() {
-		return selectedValue;
-	}
+//	public int getSelectedValue() {
+//		return selectedValue;
+//	}
 
 
-	public void setSelectedValue() {
-//		this.selectedValue = selectedValue;
-		this.selectedValue = this.id;
-	}
+//	public void setSelectedValue() {
+////		this.selectedValue = selectedValue;
+//		this.selectedValue = this.id;
+//	}
 
 	public String toString() {
 		return this.id + ": " + this.name;

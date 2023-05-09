@@ -14,14 +14,14 @@ public class slayroboto {
 	private int id;
 	private int base_speed;
 	private int cycle;
-	private int safety_distance;
+	private float safety_distance;
 	private int linecolor;
 	
 	public slayroboto() {
 		super();
 	}
 	
-	public slayroboto(int id, int base_speed, int cycle, int safety_distance, int linecolor) {
+	public slayroboto(int id, int base_speed, int cycle, float safety_distance, int linecolor) {
 		super();
 		this.id = 1;
 		this.base_speed = base_speed;
@@ -50,7 +50,7 @@ public class slayroboto {
 		return safety_distance;
 	}
 
-	public void setSafety_distance(int safety_distance) {
+	public void setSafety_distance(float safety_distance) {
 		this.safety_distance = safety_distance;
 	}
 

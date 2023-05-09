@@ -13,7 +13,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import data.celebration;
 import data.slayroboto;;
 
 @Path("/slayrobotoservices")
@@ -34,7 +33,7 @@ public class SlayRobotoServices {
 		return list;
 	}
 
-	// Adding one slayroboto object into the table prey
+	// Adding a value object into the table slayroboto
 	@POST
 	@Path("/adddata")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -54,7 +53,7 @@ public class SlayRobotoServices {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public slayroboto postDataByParams(@FormParam("id") int id, @FormParam("base_speed") int base_speed,
-			@FormParam("cycle") int cycle, @FormParam("safety_distance") float safety_distance,
+			@FormParam("cycle") int cycle, @FormParam("safety_distance") int safety_distance,
 			@FormParam("linecolor") int linecolor) {
 		slayroboto newRobot = new slayroboto(id, base_speed, cycle, safety_distance, linecolor);
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
@@ -71,7 +70,7 @@ public class SlayRobotoServices {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public slayroboto updateDataByParams(@FormParam("id") int id, @FormParam("base_speed") int base_speed,
-			@FormParam("cycle") int cycle, @FormParam("safety_distance") float safety_distance,
+			@FormParam("cycle") int cycle, @FormParam("safety_distance") int safety_distance,
 			@FormParam("linecolor") int linecolor) {
 		slayroboto newRobot = new slayroboto(id, base_speed, cycle, safety_distance, linecolor);
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
@@ -81,51 +80,27 @@ public class SlayRobotoServices {
 		em.getTransaction().commit();
 		return newRobot;
 	}
-	
-	//BASESPEED
-	
+
+	// SlayRoboto values to string
+
 	@GET
-	@Path("/basespeed")
+	@Path("/slayroboto")
 	@Produces(MediaType.TEXT_PLAIN)
-//	@Produces(MediaType.APPLICATION_JSON)
-	public int basespeed() {
-	    // Create an EntityManagerFactory with the settings from persistence.xml file
-	    EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
-	    // And then EntityManager, which can manage the entities.
-	    EntityManager em = emf.createEntityManager();
-	    
-	    // Retrieve the Prey with the specified ID
-	    slayroboto singleCelebration = em.find(slayroboto.class,1);
-	    
-	    // Close the EntityManager and EntityManagerFactory
-	    em.close();
-	    emf.close();
-	    
-	    
-	   return singleCelebration.getBase_speed();
+	public String getStringValues() {
+		// Create an EntityManagerFactory with the settings from persistence.xml file
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
+		// And then EntityManager, which can manage the entities.
+		EntityManager em = emf.createEntityManager();
+
+		// Retrieve the safetyDistance with the specified ID of 1
+		slayroboto singleRow = em.find(slayroboto.class, 1);
+
+		// Close the EntityManager and EntityManagerFactory
+		em.close();
+		emf.close();
+
+		return singleRow.getBase_speed() + " " + singleRow.getCycle() + " " + singleRow.getCycle() + " "
+				+ singleRow.getLinecolor();
 	}
-	
-	//CYCLE
-	
-		@GET
-		@Path("/cycle")
-		@Produces(MediaType.TEXT_PLAIN)
-//		@Produces(MediaType.APPLICATION_JSON)
-		public int cycle() {
-		    // Create an EntityManagerFactory with the settings from persistence.xml file
-		    EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
-		    // And then EntityManager, which can manage the entities.
-		    EntityManager em = emf.createEntityManager();
-		    
-		    // Retrieve the Prey with the specified ID
-		    slayroboto singleCelebration = em.find(slayroboto.class,1);
-		    
-		    // Close the EntityManager and EntityManagerFactory
-		    em.close();
-		    emf.close();
-		    
-		    
-		   return singleCelebration.getCycle();
-		}
-	
+
 }

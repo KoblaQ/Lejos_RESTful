@@ -24,3 +24,6 @@ create user team14@localhost identified by 'password';
 grant all on slayrobo9db.*  to team14@localhost;
 
 create table SlayRoboto (id int not null primary key, base_speed int not null, cycle int not null, safety_distance decimal not null, linecolor int not null)engine=InnoDB;
+
+create table Light (id int not null auto_increment primary key, intensity_level int)engine=InnoDB;
+create table Light (id int not null primary key, intensity_level int)engine=InnoDB;

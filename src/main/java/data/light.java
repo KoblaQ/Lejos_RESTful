@@ -18,10 +18,6 @@ public class light {
 		super();
 	}
 	
-//	public light(int id) {
-//		super();
-//		this.id = id;
-//	}
 	
 	public light(int intensity_level) {
 		super();
@@ -30,7 +26,7 @@ public class light {
 	
 	public light(int id, int intensity_level) {
 		super();
-		this.id = id;
+		this.id = 1;
 		this.intensity_level = intensity_level;
 		
 	}
@@ -55,6 +51,6 @@ public class light {
 	}
 
 	public String toString() {
-		return "Line Color: " + this.id + "/ " + this.intensity_level;
+		return ""+this.id + this.intensity_level;
 	}
 }

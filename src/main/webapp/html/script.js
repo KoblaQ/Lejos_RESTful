@@ -123,7 +123,6 @@ function printOneObstacle(o){
 	s=s+"<tr>";
 	s=s+"<td>"+o.id;
 	s=s+"<td>"+o.distance;
-	s=s+"<td>"+o.time;
 	s=s+"</table>";
 	document.getElementById("distance").innerHTML=s;
 }
@@ -135,7 +134,6 @@ function printAllObstacles(list){
 		s=s+"<tr>";
 		s=s+"<td>"+list[i].id;
 		s=s+"<td>"+list[i].distance;
-		s=s+"<td>"+list[i].time;
 	}
 	s=s+"</table>";
 	document.getElementById("alldistance").innerHTML=s;
@@ -270,35 +268,90 @@ function printAllSlayRobot(list){
 //Read SlayRoboto
 
 
-function readOneLight(){
-	var xmlhttp=new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-	  if (this.readyState == 4 && this.status == 200) {
-		  var jsonslayroboto=this.responseText;
-		  //Add JSON string as a content of element resultone
-		  document.getElementById("resultoneslayroboto").innerHTML = jsonslayroboto;
-		  //Parse json string to a Javascript object
-		  var slayroboto=JSON.parse(jsonslayroboto);
-		  //print fish by function printOneFish.
-		  printOneSlayRobot(slayroboto);
-	  }
-	};
-	xmlhttp.open("GET", "/rest/slayrobotoservices/readall", true);
-	xmlhttp.send();	
+function readOneSlayRoboto(){
+    var xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          var jsonslayroboto=this.responseText;
+          //Add JSON string as a content of element resultone
+          document.getElementById("resultoneslayroboto").innerHTML = jsonslayroboto;
+          //Parse json string to a Javascript object
+          var slayroboto=JSON.parse(jsonslayroboto);
+          //print fish by function printOneFish.
+          printOneSlayRobot(slayroboto);
+      }
+    };
+    xmlhttp.open("GET", "/rest/slayrobotoservices/readall", true);
+    xmlhttp.send();
 }
 
-function readAllLight(){
-	var xmlhttp=new XMLHttpRequest();
+function readAllSlayRoboto(){
+    var xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          var jsonslayrobotolist=this.responseText;
+          //Add JSON string as a content of element resultall
+          document.getElementById("resultallslayroboto").innerHTML = jsonslayrobotolist;
+          var slayrobotolist=JSON.parse(jsonslayrobotolist);
+          //print celebration by function printAllCelebrations.
+          printAllSlayRobot(slayrobotolist);
+      }
+    };
+    xmlhttp.open("GET", "/rest/slayrobotoservices/readall", true);
+    xmlhttp.send();
+}
+
+
+function printOnecount(co){
+    var s="<table border='1'>";
+    s=s+"<tr>";
+    s=s+"<td>"+co.distance;
+    s=s+"</table>";
+    document.getElementById("count").innerHTML=s;
+}
+//Read count?
+
+function readAllCount(){
+    var xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          var jsonCount=this.responseText;
+          //Add JSON string as a content of element resultall
+          document.getElementById("allcount").innerHTML = jsonCount;
+          var countlist=JSON.parse(jsonCount);
+          //print celebration by function printAllCelebrations.
+          printOnecount(countlist);
+      }
+    };
+    xmlhttp.open("GET", "/rest/obstacledetectedservices/obstaclecount", true);
+    xmlhttp.send();
+}
+
+
+//EDEM PLAYGROUND
+
+function readOneCount() {
+	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
-	  if (this.readyState == 4 && this.status == 200) {
-		  var jsonslayrobotolist=this.responseText;
-		  //Add JSON string as a content of element resultall
-		  document.getElementById("resultallslayrobotot").innerHTML = jsonslayrobotolist;
-		  var slayrobotolist=JSON.parse(jsonslayrobotolist);
-		  //print celebration by function printAllCelebrations.
-		  printAllSlayRobot(slayrobotolist);
-	  }
+		if (this.readyState == 4 && this.status == 200) {
+			var jsonCelebration = this.responseText;
+			//Add JSON string as a content of element resultone
+			document.getElementById("resultone").innerHTML = jsonCelebration;
+			//Parse json string to a Javascript object
+			var celebration = JSON.parse(jsonCelebration);
+			//print fish by function printOneFish.
+			printOneCelebration(celebration);
+		}
 	};
-	xmlhttp.open("GET", "/rest/slayrobotoservices/readall", true);
-	xmlhttp.send();	
+	xmlhttp.open("GET", "/rest/celebrationservices/readallcelebrations",
+			true);
+	xmlhttp.send();
+}
+function printOneCelebration(c) {
+	var s = "<table border='1'>";
+	s = s + "<tr>";
+	s = s + "<td>" + c.id;
+	s = s + "<td>" + c.name;
+	s = s + "</table>";
+	document.getElementById("name").innerHTML = s;
 }

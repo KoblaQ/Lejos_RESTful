@@ -5,72 +5,78 @@
 <title>Team 14 Robot 9</title>
 <link rel="stylesheet" href="style.css">
 <style>
-body {
-	background-color: rgb(236, 221, 250);
-}
-
-input {
-	align-items: center;
-	border-radius: 25px;
-}
-
-title {
-	color: rgb(39, 1, 109);
-}
-
-p {
-	color: rgba(124, 0, 161, 0.726);
-}
-</style>
-<script src="script.js"></script>
+    body{ background-color: rgb(236, 221, 250);}
+    input{ align-items: center; border-radius: 25px;}
+    title {color:rgb(39, 1, 109);}
+    p {color:rgba(124, 0, 161, 0.726);}
+  </style>
+   <script src="script.js"></script> 
 </head>
 <body>
 
-	<h1>Team 14 Robot 9</h1>
+    <h1> Team 14 Robot 9</h1>
 
-<div class="container">
-  <div class="row">
-    <form method="get" action=""> 
-      <div class="column">
-        <label>Speed<br><input type="number" name="speed" value="speed"></label><br>
-        <label>How many rounds before celebration<br><input type="number" name="cycle"></label><br>
-        <label>How far will robot detect obstacles<br><input type="number" name="safety_distance"></label>
-      </div>
-    </div><br>
-    <div class="row">
-      <div class="column2">
-        <label>Intensity of light that the robot will follow<br><input type="number" name="intensity"></label><br>
-        <label for="song">Choose a celebration song<br></label>
-        <select id="song" name="song">
-          <option value="">Mario song</option>
-          <option value="">Cbat</option>
-          <option value="">Imperial march</option>
+    <div class="container">
+    <form method='post' action="/rest/slayrobotoservices/updatedata"> 
+    <label>Base Speed  <br><input type="number" name="base_speed" value=""> </label> <br>
+    <label> Cycle <br><input type ="number" name="cycle" value=""></label><br>
+    <label> Safety distance <br><input type ="number" name="safety_distance" value=""></label><br>
+
+
+    <label> LineColor  <br><input type ="number" name="linecolor" value=""></label><br>
+
+
+   <!-- <label for="song">Choose a celebration song <br></label>
+
+    <select id="song" name="song">
+        <option value="">Mario song</option>
+        <option value="">Cbat</option>
+        <option value="">Imperial march</option>
         </select><br>
-        <p>Celebration message<br></p>
-        <textarea name="message" rows="10" cols="30"></textarea>
-      </div>
-      <div class="column3"> 
-        <input type="submit" value="submit">
-        <input type="reset" value="reset">
-        <input type="submit" value="start">
-        <input type="submit" value="stop">
-      </div>
-    </form>
-  </div>
+    <p>Celebration message<br></p>
+    <textarea name="message" rows="10" cols="30"></textarea><br> --> 
+
+
+    <input type="submit" value="submit">
+    <input type="reset" value="reset">
+    <input type="submit" value="start">
+    <input type="submit" value="stop">
+      </form></div>
+
+            <div class="container2">
+
+        <h2>One SlayRoboto</h2>
+        <button onclick='readOneSlayRoboto();'>Read one </button>
+        <!--readOneCelebration()  -->
+        <p id='resultoneslayroboto'></p>
+        <div id='base_speed'></div>
+
+        <h2>Several SlayRobotos</h2>
+        <button onclick='readAllSlayRoboto();'>Read all </button>
+        <!--readAllCelebrations()  -->
+        <p id='resultallslayroboto'></p>
+        <div id='allbase_speed'></div>
+
+
+    <h2>One light</h2>
+    <button onclick='readOneLight();'>Read one</button>
+    <p id='resultonelight'></p>
+    <div id='intensity_level'></div>
+
+    <h2>Several Obstacles detected</h2>
+    <button onclick='readAllObstacles();'>Read all </button>
+    <!--readAllCelebrations()  readAverageObstacleCount() -->
+    <p id='resultallobstacles'></p>
+    <div id='alldistance'></div>
+    
+    <h2>Count Obstacle detected</h2>
+    <button onclick='readAllCount();'>Read all </button>
+    <!--r -->
+    <p id='allcount'></p>
+    <div id='count'></div>
+
+
 </div>
-	<div class="container2">
-
-		<h2>One celebration returned</h2>
-		<button onclick='readOneCelebration();'>Read one celebration</button>
-		<p id='resultone'></p>
-		<div id='onecelebration'></div>
-
-		<h2>Several celebration returned</h2>
-		<button onclick='readAllCelebrations();'>Read all
-			celebrations</button>
-		<p id='resultall'></p>
-		<div id='allnames'></div>
-	</div>
 
 
 </body>

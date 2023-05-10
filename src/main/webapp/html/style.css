@@ -151,3 +151,9 @@ input[type=submit]:hover, input[type=reset]:hover{
     background-color: #BECCFE;
 
   }
+  
+ table, th, td {
+  border: 2px solid;
+  display: inline-table;
+  width: 30%;
+}

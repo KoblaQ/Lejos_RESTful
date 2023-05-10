@@ -334,13 +334,13 @@ function readOneCount() {
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			var jsonCelebration = this.responseText;
+			var jsonCounter = this.responseText;
 			//Add JSON string as a content of element resultone
-			document.getElementById("resultone").innerHTML = jsonCelebration;
+			document.getElementById("resultonecount").innerHTML = jsonCounter;
 			//Parse json string to a Javascript object
-			var celebration = JSON.parse(jsonCelebration);
+			var count = JSON.parse(jsonCounter);
 			//print fish by function printOneFish.
-			printOneCelebration(celebration);
+			printCount(count);
 		}
 	};
 	xmlhttp.open("GET", "/rest/celebrationservices/readallcelebrations",

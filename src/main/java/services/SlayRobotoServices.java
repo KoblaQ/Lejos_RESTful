@@ -49,7 +49,7 @@ public class SlayRobotoServices {
 
 	// This method uses FormParams, but does the same as previous
 	@POST
-	@Path("/adddata")
+	@Path("/adddatas")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public slayroboto postDataByParams(@FormParam("id") int id, @FormParam("base_speed") int base_speed,

@@ -33,12 +33,12 @@ public class SlayRobotoServices {
 		return list;
 	}
 
-	// Adding one slayroboto object into the table prey
+	// Adding one value object into the table slayroboto
 	@POST
 	@Path("/adddata")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public slayroboto postObstacle(slayroboto newRobot) {
+	public slayroboto postValue(slayroboto newRobot) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
@@ -101,7 +101,8 @@ public class SlayRobotoServices {
 		    emf.close();
 		    
 		    
-		   return slayRoboto.getBase_speed() + " " + slayRoboto.getCycle() + " " + slayRoboto.getSafety_distance() + " " + slayRoboto.getLinecolor();
+//		   return slayRoboto.getBase_speed() + " " + slayRoboto.getCycle() + " " + slayRoboto.getSafety_distance() + " " + slayRoboto.getLinecolor();
+		   return slayRoboto.toString();
 		}
 	
 }

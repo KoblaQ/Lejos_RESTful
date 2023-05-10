@@ -78,21 +78,5 @@ public class ObstacleDetectedServices {
 					return newObstacle;
 				}
 		
-//				//This method uses no params
-//				@GET
-//				@Path("/addobstacle/{distance}")
-//				@Produces(MediaType.APPLICATION_JSON)
-////				@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-//				public obstacle_detected postSingleObstacleByParams(@QueryParam("distance") int distance) {
-//					obstacle_detected newObstacle=new obstacle_detected(distance);
-//					EntityManagerFactory emf=Persistence.createEntityManagerFactory("slayrobo9db");
-//					EntityManager em=emf.createEntityManager();
-//					em.getTransaction().begin();
-//					em.persist(newObstacle);
-//					em.getTransaction().commit();
-//					return newObstacle;
-//				}
-//		
-		
 	
 }

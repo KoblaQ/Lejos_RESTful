@@ -10,7 +10,6 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -33,7 +32,7 @@ public class Lightservices {
 		return list;
 	}
 	
-	//Adding one prey object into the table Light	
+	//Adding one prey object into the table prey	
 	@POST
 	@Path("/addlinecolor")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -61,20 +60,5 @@ public class Lightservices {
 		em.getTransaction().commit();
 		return newLineColor;
 	}
-	
-	//This method uses pathparam to input values into the light	
-		@GET
-		@Path("/colorsensor/{intensity_level}")
-		@Produces(MediaType.APPLICATION_JSON)
-//		@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-		public light postLightByPathParam(@PathParam("intensity_level") int intensity_level) {
-			light newLineColor=new light(intensity_level);
-			EntityManagerFactory emf=Persistence.createEntityManagerFactory("slayrobo9db");
-			EntityManager em=emf.createEntityManager();
-			em.getTransaction().begin();
-			em.persist(newLineColor);
-			em.getTransaction().commit();
-			return newLineColor;
-		}
 
 }

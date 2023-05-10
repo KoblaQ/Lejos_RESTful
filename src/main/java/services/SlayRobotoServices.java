@@ -33,12 +33,12 @@ public class SlayRobotoServices {
 		return list;
 	}
 
-	// Adding a value object into the table slayroboto
+	// Adding one value object into the table slayroboto
 	@POST
 	@Path("/adddata")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public slayroboto postObstacle(slayroboto newRobot) {
+	public slayroboto postValue(slayroboto newRobot) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
@@ -80,27 +80,29 @@ public class SlayRobotoServices {
 		em.getTransaction().commit();
 		return newRobot;
 	}
-
-	// SlayRoboto values to string
-
-	@GET
-	@Path("/slayroboto")
-	@Produces(MediaType.TEXT_PLAIN)
-	public String getStringValues() {
-		// Create an EntityManagerFactory with the settings from persistence.xml file
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
-		// And then EntityManager, which can manage the entities.
-		EntityManager em = emf.createEntityManager();
-
-		// Retrieve the safetyDistance with the specified ID of 1
-		slayroboto singleRow = em.find(slayroboto.class, 1);
-
-		// Close the EntityManager and EntityManagerFactory
-		em.close();
-		emf.close();
-
-		return singleRow.getBase_speed() + " " + singleRow.getCycle() + " " + singleRow.getCycle() + " "
-				+ singleRow.getLinecolor();
-	}
-
+		
+		//All SlayRoboto Values to string 
+		
+		@GET
+		@Path("/slayroboto")
+		@Produces(MediaType.TEXT_PLAIN)
+//		@Produces(MediaType.APPLICATION_JSON)
+		public String slayrobotoString() {
+		    // Create an EntityManagerFactory with the settings from persistence.xml file
+		    EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
+		    // And then EntityManager, which can manage the entities.
+		    EntityManager em = emf.createEntityManager();
+		    
+		    // Retrieve the Prey with the specified ID
+		    slayroboto slayRoboto = em.find(slayroboto.class,1);
+		    
+		    // Close the EntityManager and EntityManagerFactory
+		    em.close();
+		    emf.close();
+		    
+		    
+//		   return slayRoboto.getBase_speed() + " " + slayRoboto.getCycle() + " " + slayRoboto.getSafety_distance() + " " + slayRoboto.getLinecolor();
+		   return slayRoboto.toString();
+		}
+	
 }

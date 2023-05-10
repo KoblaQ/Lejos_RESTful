@@ -15,7 +15,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import data.celebration;
+import data.celebrations;
 
 @Path("/celebrationservices")
 public class CelebrationServices {
@@ -32,7 +32,7 @@ public class CelebrationServices {
 	@GET
 	@Path("/readallcelebrations")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<celebration> readAllCelebrations() {
+	public List<celebrations> readAllCelebrations() {
 		// Create an EntityManagerFactory with the settings from persistence.xml file
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
 		// And then EntityManager, which can manage the entities.
@@ -40,7 +40,7 @@ public class CelebrationServices {
 
 		// Read all the rows from table obstacle_detected. This returns a List of
 		// obstacle_detected objects.
-		List<celebration> list = em.createQuery("select a from celebration a").getResultList();
+		List<celebrations> list = em.createQuery("select a from celebration a").getResultList();
 		return list;
 	}
 
@@ -49,7 +49,7 @@ public class CelebrationServices {
 	@Path("/addcelebration")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public celebration postCelebration(celebration newCelebration) {
+	public celebrations postCelebration(celebrations newCelebration) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
@@ -63,8 +63,8 @@ public class CelebrationServices {
 	@Path("/addcelebration")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public celebration postCelebrationByParams(@FormParam("id") int id, @FormParam("celebration") String celebration) {
-		celebration newCelebration = new celebration(id, celebration);
+	public celebrations postCelebrationByParams(@FormParam("id") int id, @FormParam("celebration") String celebration) {
+		celebrations newCelebration = new celebrations(id, celebration);
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("slayrobo9db");
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();

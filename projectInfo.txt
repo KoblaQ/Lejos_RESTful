@@ -39,8 +39,6 @@ services: contains all the paths that would be called for adding and updating va
 
 Html form 
 For now it is inside src/main/webapp/html/Form.html
-
-
 SlayRoboto.HTML page
 Page that contains all the commands. 
 

@@ -127,8 +127,12 @@ public class SlayRobotoServices {
 		    
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 //		   return slayRoboto.getBase_speed() + " " + slayRoboto.getCycle() + " " + slayRoboto.getSafety_distance() + " " + slayRoboto.getLinecolor();
 		   return slayRoboto.toString();
+=======
+		   return singleCelebration.getCycle();
+>>>>>>> parent of ac0619b (New Random update)
 =======
 		   return singleCelebration.getCycle();
 >>>>>>> parent of ac0619b (New Random update)

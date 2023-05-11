@@ -1,23 +1,34 @@
  user stories to the web UI
+ 
+ Settings
 
-As a user I can set speed
+As a user I can set speed (base speed)
     Through a web browser, a user can set speed to the Lego robot (or slow down or speed up the velocity). The setting is saved into a database. 
 
-As a user I can set at what light intensity the robot will detect the line
+As a user I can set at what light intensity the robot will detect the line (line color)
     Through a web browser, a user can set the value for light intensity that the robot will use to stay on track.
 
+As a user I can set how many times the robot will follow the line before it celebrates (cycle)
+    Through a web browser, a user can set the count for the cycle which initiates the robot's celebration.
 
-As a user I can set how many times the robot will follow the line before it celebrates
-    Through a web browser, a user can set the count for the cycle which initiates the robot's celebration
+As a user I can set how far the robot will detect an obstacle (Safety distance)
+ Through a web browser, a user can set the distance in which the robot will detect an obstacle.
 
-As a user I can set, which song will play once it starts celebrating
-    Through a web browser, a user can choose which song from closed options that could play once the robot finishes it's cycle around the track.
+Statistics
 
-As a user I can set, what message will be displayed on the screen once it is done with the celebration
-    Through a web browser, a user can choose the message that will appear on the screen at the end of the robot's celebration.
+As a user I can see the current settings
+    Through a web browser, a user can see the current settings of the Lego robot 
+    
+As a user I can see the total count for the number of obstacles detected
+    Through a web browser, a user can see the number of times the Lego robot detected an obstacle
+    
+As a user I can see the light intensity
+    Through a web browser, a user can see the current settings of the Lego robot's light intensity. 
 
+Lego robot
 
-user stories to the lego robot
-
+Lego robot can send data to a RESTful web service
+    Lego robot has a Thread which sends the obstacles it detected and other data to a RESTful web service 
+    
 Lego robot can read data from a RESTful web service
     Lego robot has a thread, which reads data, e.g. new speed setting, from a RESTful web service 

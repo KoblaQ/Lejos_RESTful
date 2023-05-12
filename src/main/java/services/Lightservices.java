@@ -35,6 +35,7 @@ public class Lightservices {
 		return list;
 	}
 	
+	
 	//Adding one prey object into the table prey	
 	@POST
 	@Path("/addlinecolor")
@@ -83,5 +84,7 @@ public class Lightservices {
 
 	    return colorSensor;
 	}
+	
+	
 
 }

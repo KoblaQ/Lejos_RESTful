@@ -2,28 +2,19 @@ SQL commands for the database
 
 Create database slayrobo9db;
 
-use slayrobo9db;
-
-create table SlayRoboto (base_speed int not null, cycle int not null, safety_distance decimal not null, linecolor int not null)engine=InnoDB;
-
-
-create table Display_Message (id int not null auto_increment primary key, message varchar(100) not null )engine=InnoDB;
-
-create table Celebration (id int not null auto_increment primary key, name varchar(100) not null) engine=InnoDB;
-
-create table Obstacle_Detected (id int not null auto_increment primary key, distance int)engine=InnoDB;
-
-create table Light (intensity_level int primary key)engine=InnoDB;
-
-
-NOTE: Light table has been merged into the SlayRoboto table. 
-Possibility to take obstacle detected out as a foreign key as well. (Discuss)
-
-
 create user team14@localhost identified by 'password';
 grant all on slayrobo9db.*  to team14@localhost;
 
+use slayrobo9db;
+
+
+
 create table SlayRoboto (id int not null primary key, base_speed int not null, cycle int not null, safety_distance decimal not null, linecolor int not null)engine=InnoDB;
 
-create table Light (id int not null auto_increment primary key, intensity_level int)engine=InnoDB;
+create table Obstacle_Detected (id int not null auto_increment primary key, distance int)engine=InnoDB;
+
 create table Light (id int not null primary key, intensity_level int)engine=InnoDB;
+
+
+
+

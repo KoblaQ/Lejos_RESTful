@@ -8,7 +8,6 @@ import javax.persistence.Id;
 @Entity
 public class light {
 	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
 	private int id;
@@ -28,7 +27,6 @@ public class light {
 		super();
 		this.id = 1;
 		this.intensity_level = intensity_level;
-		
 	}
 	
 	

@@ -37,7 +37,7 @@ public class ObstacleDetectedServices {
 		
 		
 		
-		// Reading total number of rows from table obstacle_detected.
+		// Reading total number of rows from table obstacle_detected. (COUNT)
 		@GET
 		@Path("/obstaclecount")
 		@Produces(MediaType.APPLICATION_JSON)
@@ -55,7 +55,7 @@ public class ObstacleDetectedServices {
 		    return (int) count;
 		}
 		
-		//Adding one prey object into the table prey	
+		//Adding one obstacle object into the table obstacle_detected	
 		@POST
 		@Path("/addobstacle")
 		@Produces(MediaType.APPLICATION_JSON)
@@ -84,11 +84,10 @@ public class ObstacleDetectedServices {
 			return newObstacle;
 		}
 		
-		//This method uses no params
+		//This method uses path params to input values from the robot. 
 				@GET
 				@Path("/addobstacle/{distance}")
 				@Produces(MediaType.APPLICATION_JSON)
-//				@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 				public obstacle_detected postSingleObstacleByParams(@PathParam("distance") int distance) {
 					obstacle_detected newObstacle=new obstacle_detected(distance);
 					EntityManagerFactory emf=Persistence.createEntityManagerFactory("slayrobo9db");

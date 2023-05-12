@@ -1,21 +1,70 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-  <head>
-    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
-    <title>Hello App Engine</title>
-  </head>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Team 14 Robot 9</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+</head>
+<body>
 
-  <body>
-    <h1>Hello App Engine!</h1>
+	<h1>Team 14 Robot 9</h1>
 
-    <table>
-      <tr>
-        <td colspan="2" style="font-weight:bold;">Available Servlets:</td>        
-      </tr>
-      <tr>
-        <td><a href='/hello'>The servlet</a></td>
-        <td><a href='./slayroboto.html'>SlayRoboto</a></td>
-      </tr>
-    </table>
-  </body>
+
+
+	<h2>Input the desired values</h2>
+
+	<div>
+		<div class="container">
+
+			<form method='post' action="/rest/slayrobotoservices/updatedata">
+				<label>Base Speed <br> <input type="number"
+					name="base_speed" value="">
+				</label> <br> <label> Cycle <br> <input type="number"
+					name="cycle" value=""></label><br> <label> Safety
+					distance <br> <input type="number" name="safety_distance"
+					value="">
+				</label><br> <label> LineColor <br> <input type="number"
+					name="linecolor" value=""></label><br> <input type="submit"
+					value="Submit">
+			</form>
+		</div>
+
+		<div class="container2">
+
+			<h2>Current Values in SlayRoboto Database</h2>
+			<button onclick='readAllSlayRoboto();'>Read all</button>
+			<!--readAllCelebrations()  -->
+			<p id='resultallslayroboto'></p>
+			<div id='allbase_speed'></div>
+
+
+			<h2>LineColor</h2>
+			<button onclick='readAllLight();'>Show LineColor</button>
+			<p id='resultalllight'></p>
+			<div id='alllight'></div>
+
+
+			<h2>Count Obstacle detected</h2>
+			<button onclick='readAllCount();'>Read all</button>
+			<!--r -->
+			<p id='allcount'></p>
+			<div id='count'></div>
+
+			<h2>Several Obstacles detected</h2>
+			<button onclick='readAllObstacles();'>Read all</button>
+			<!--readAllCelebrations()  readAverageObstacleCount() -->
+			<p id='resultallobstacles'></p>
+			<div id='alldistance'></div>
+
+
+
+
+		</div>
+	</div>
+
+
+
+
+</body>
 </html>

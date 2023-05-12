@@ -1,0 +1,53 @@
+Content of the Practice Work
+Topic of the practice work is to develop a Java RESTful web-service, which receives data from a Lego robot and saves it into a database.
+The Lego robot also reads data from the service: through a browser window a user can set parameters, 
+which the Lego robot reads and the robot behaves according to the settings.
+
+
+
+WEB UI UserStory
+SETTINGS
+As a user I can set the robot speed (Base Speed). 
+
+Through a web browser, a user can set the base speed of the Lego robot (or slow down or speed up the velocity). The setting is saved into a database.
+
+As a user I can set number of times the Lego should go around the track. (Cycle)
+Through a web browser, a user can set the cycle count to determine how many times the robot goes along the track avoiding obstacles. The settings are saved into a database.
+
+As a user I can set the distance which the Lego robot detects the obstacle. (Safety_Distance)
+Through a web browser, a user can set the distance at which the robot should detect the obstacle and therefore begin avoiding it. The settings are saved into a database. 
+
+
+As a user I can set the desired track color. (LineColor)
+Through a web browser, a user can set the Line Color that the robot should stay on. The settings are saved into a database. 
+
+
+
+
+STATISTICS
+
+As a user I can see the current settings.
+Through a web browser, a user can see the current settings of the Lego robot. (Base Speed, Cycle count, Safety Distance and LineColor)
+
+As a user I can see the line color statistic in real time.  (Line Color)
+Through a web browser, a user can see the statistics of the actual line color the robot detects on the track (Through the sample provider). 
+
+As a user I can see the number of times the robot gets blocked by an obstacle. 
+Through a web browser, a user can see the statistics of the number of times an object crossed the path of the robot.
+
+As a user I can see the obstacle cycle statistics.
+Through a web browser, a user can see the statistics of the which particular cycles obstacles crossed the path of the robot.
+
+Through a web browser, a user can see the statistics of speed / time of rounds / average time of rounds
+As a user I can see how the Lego robot can follow the track
+Through a web browser, a user can see e.g. how long time the robot has been off the track (driving off the track).
+
+
+
+LEGO ROBOT USER STORY
+
+Lego robot can read data, e.g. base_speed, cycle, safety_distance, linecolor setting, from a RESTful web service
+Lego robot sends obstacle_detected count data to a RESTful web service.
+Lego robot sends LineColor data to a RESTful web service.
+
+

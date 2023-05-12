@@ -38,11 +38,6 @@ Through a web browser, a user can see the statistics of the number of times an o
 As a user I can see the obstacle cycle statistics.
 Through a web browser, a user can see the statistics of the which particular cycles obstacles crossed the path of the robot.
 
-Through a web browser, a user can see the statistics of speed / time of rounds / average time of rounds
-As a user I can see how the Lego robot can follow the track
-Through a web browser, a user can see e.g. how long time the robot has been off the track (driving off the track).
-
-
 
 LEGO ROBOT USER STORY
 

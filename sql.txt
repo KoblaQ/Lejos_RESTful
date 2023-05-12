@@ -1,5 +1,6 @@
 SQL commands for the database
 
+
 Create database slayrobo9db;
 
 create user team14@localhost identified by 'password';
